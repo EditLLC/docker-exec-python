@@ -1,6 +1,12 @@
 import montage
 from montage import client, Query, Field
 import sys
+import os
+
+
+if 'MONTAGE_DEVSITE' in os.environ:
+    client.host = 'dev.montagehot.club'
+    client.protocol = 'http'
 
 script = sys.stdin.read()
 code = compile(script, "main.py", "exec")
